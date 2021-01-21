@@ -1,4 +1,4 @@
-#Quiz Maker (React)
+# Quiz Maker (React)
 
 ## About this Project
 This is a simple quiz maker project, which allows the user to view and share their scores on different quizes that can be created using the app. This project is mainly to show my knowledge of React, ReactRouter and use of Firebase.
