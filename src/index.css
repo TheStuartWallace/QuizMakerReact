@@ -1,0 +1,83 @@
+:root{
+	--backgroundGlobal:				#872D62;
+	--backgroundDarkerGlobal: 		#651142;
+	--backgroundLigherGlobal: 		#A95486;
+
+	--backgroundDisabledGlobal:		#474747;
+	
+	--colorGlobal:					#CB87AF;
+	--backgroundCorrect: 			#4dc46b;
+}
+
+html, body{
+	width:100% !important;
+	height:100% !important;
+	margin: 0px;
+	font-size: 14px;
+	padding:none;
+	color:var(--colorGlobal);
+	font-family: Tahoma;
+}
+
+button{
+	background: var(--backgroundDarkerGlobal);
+	font-weight: bold;
+	border:0px;
+	border-radius: 4px;
+	color: var(--backgroundGlobal);
+	transition: background 1s;
+}
+
+button:hover{
+	background: var(--backgroundLigherGlobal);
+}
+
+::placeholder{
+	color:var(--colorGlobal);
+}
+
+.globalWrapper{
+	width:100vw;
+	height:100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+
+	background: var(--backgroundGlobal);
+}
+
+a,a:visited{
+	color:var(--backgroundDarkerGlobal);
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+.globalLeftNav,.globalRightNav{
+	position: fixed;
+	width:5vw;
+	height:50vh;
+	font-size:4rem;
+	transition: background 0.5s;
+}
+
+.globalLoadingMessage{
+	font-weight: bold;
+	font-size: 5rem;
+}
+
+
+.globalLeftNav:hover,.globalRightNav:hover{ background: var(--backgroundLigherGlobal); }
+.globalLeftNav:disabled,.globalRightNav:disabled{ display: none; }
+.globalLeftNav{	left:0px; }
+.globalRightNav{ right:0px; }
+
+@media only screen and (max-width:800px){
+	.globalLeftNav,.globalRightNav{
+		font-size:2rem;
+	}
+}

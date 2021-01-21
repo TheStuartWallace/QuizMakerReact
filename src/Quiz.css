@@ -1,0 +1,164 @@
+.qTitle{
+	font-size: 8rem;
+	font-weight: bold;
+	margin:5vh auto;
+}
+
+.qStartMessage, .qEndMessage	{
+	font-size:2rem;
+	font-weight: bold;
+	margin:5vh auto;
+}
+
+.qQuestionCount{
+	font-size:2rem;
+}
+
+.qStartButton{
+	width:50vw;
+	height:10vh;
+	font-size: 3rem;
+	font-weight: bold;
+	background: var(--backgroundDarkerGlobal);
+	color:var(--backgroundLigherGlobal);
+	border:none;
+}
+
+.qQuestion{
+	font-size:2rem;
+	font-weight: bold;
+}
+
+.qAnswerButton{
+	width:50vw;
+	height:5vh;
+	font-size:2rem;
+	transition: background 1s, color 1s;
+}
+
+.qAnswerButton:hover{
+	background: var(--backgroundLigherGlobal);
+	color:var(--backgroundDarkerGlobal);
+}
+
+.qResultQuestion, .qResultAnswer{
+	margin:1vh auto;
+	height:3vh;
+}
+
+.qResultQuestion{
+	font-size:1.5rem;
+	font-weight: bold;
+}
+
+.qCorrect, .qWrong{
+	width:50vw;
+	margin:1vh auto;
+	color:black;	
+}
+
+.qCorrect{
+	background: var(--backgroundCorrect);
+}
+
+.qWrong{
+	background: red;
+}
+
+.qSaveResult{
+	margin:5vh auto;
+	font-size:1.5rem;
+	font-weight: bold;	
+	width:50vw;
+}
+
+.qSaveInput{
+	font-size:2rem;
+	width:20vw;
+	height:4vh;
+}
+
+.qSaveButton{
+	width:5vw;
+	height:5vh;
+	border:none;
+	background: var(--backgroundDarkerGlobal);
+	color:var(--backgroundLigherGlobal);
+	font-weight: bold;
+	font-size:1rem;
+	transition: background 1s, color 1s;
+	margin:0vh 1vw;
+}
+
+.qResultLink{
+	width:50vw;
+	word-wrap: break-word;
+}
+
+@media only screen and (max-width:800px){
+	.qTitle{
+		font-size: 4rem;
+	}
+
+	.qStartMessage, .qEndMessage{
+		width:80vw;
+		font-size:2rem;
+	}
+
+	.qQuestionCount, .qAnswerButton, .qAnswerEnd, .qCorrect, .qWrong, .qSaveResult, .qResultLink{
+		width:80vw;
+	}
+
+	.qSaveInput{
+		width:50vw;
+		border: 0px;
+		border-radius: 4px;
+	}
+
+	.qSaveButton{
+		width:20vw;
+	}
+}
+
+
+@media only screen and (max-width:400px){
+	.qTitle{
+		font-size: 3rem;
+	}
+
+	.qStartMessage, .qEndMessage{
+		width:80vw;
+		font-size:1rem;
+	}
+
+	.qQuestionCount{
+		font-size:1rem;
+	}
+
+	.qQuestionCount, .qAnswerButton, .qAnswerEnd, .qCorrect, .qWrong, .qSaveResult, .qResultLink{
+		width:90vw;
+	}
+
+	.qStartButton{
+		width:80vw;
+	}
+
+	.qAnswerButton{
+		font-size:1rem;
+	}
+
+	.qResultQuestion,.qResultAnswer{
+		font-size:0.8rem;
+		word-wrap: break-word;
+	}
+
+	.qSaveInput{
+		font-size:1rem;
+		width:60vw;
+	}
+
+	.qSaveButton{
+		font-size:0.8rem;
+		width:25vw;
+	}
+}

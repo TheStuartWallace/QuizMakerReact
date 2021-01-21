@@ -1,0 +1,172 @@
+.mpWrapper{
+	width:100%;
+	height:100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.mpInputTitle{
+	width:75vw;
+	height:10vh;
+	font-size:5rem;
+	text-align: center;
+	font-weight: bold;
+	border:none;
+	background: var(--backgroundLigherGlobal);
+	margin:0.5vh 1vw;
+}
+
+.mpSaveLink{
+
+}
+
+.mpInputStart, .mpInputWin, .mpInputLoss, .mpInputWinScore{
+	width:90%;
+	height:90%;
+	margin:0.5vh 1vw;
+	border: none;
+	text-align: center;
+	font-size: 2rem;
+	font-weight: bold;
+	background: none;
+}
+
+.mpQuizOption{
+	margin:1vh auto;
+	width:50vw;
+	height:6vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: var(--backgroundLigherGlobal);
+}
+
+.mpQuestionInput{
+	width:50vw;
+	height:3vh;
+	font-size:2rem;
+	border:0px;
+	border-radius: 4px;
+}
+
+.mpQuestionTitle{
+	font-size: 3rem;
+	font-weight: bold;
+	margin:1vh auto;
+}
+
+.mpQuestionNavigationPrevious, .mpQuestionNavigationNew,.mpQuestionNavigationNext{
+	margin:1vh 0.5vw;
+
+	width:10vw;
+	height:3vh;
+}
+
+.mpQuestionNavigationPrevious:disabled, .mpQuestionNavigationNew:disabled,.mpQuestionNavigationNext:disabled{
+	background: var(--backgroundDisabledGlobal);
+}
+
+.mpQuestion, .mpQuestionCorrect{
+	margin:0.1vw;
+	width:50vw;
+	height:3vh;
+	border:0px;
+	border-radius: 4px;
+}
+
+.mpQuestionCorrect{
+	background: var(--backgroundCorrect);
+}
+
+.mpCorrect{
+	border:0px;
+	width:10vw;
+	height:4vh;
+	margin:0vh 0.5vw;
+	transition: background 1s;
+}
+
+.mpSubmitQuizMessage{
+	font-size:5rem;
+	font-weight: bold;
+}
+
+.mpSubmitQuizButton{
+	width:50vw;
+	height:5vh;
+	margin:1vh 1vh;
+	font-size:2rem;
+}
+
+.mpAnswerSpan{
+ 	margin:0.25vh 0vw;
+ }
+
+@media only screen and (max-width:800px){
+	.mpInputTitle{
+		font-size:3rem;
+	}
+
+	.mpInputStart, .mpInputWin, .mpInputLoss, .mpInputWinScore{
+		font-size:1.5rem;
+	}
+
+	.mpWrapper,.mpQuestionNavigation{
+		width:80vw;
+	}
+
+	.mpQuestionNavigationPrevious, .mpQuestionNavigationNew,.mpQuestionNavigationNext{
+		width:25vw;
+	}
+
+	.mpSubmitQuizMessage{
+		font-size:2.5rem;
+	}
+
+	.mpSubmitQuizButton{
+		width:70vw;
+		height:5vh;
+		margin:1vh 1vh;
+		font-size:2rem;
+	}
+}
+
+@media only screen and (max-width:400px){
+	.mpInputTitle{
+		font-size:1.5rem;
+	}
+
+	.mpInputStart, .mpInputWin, .mpInputLoss, .mpInputWinScore{
+		font-size:0.8rem;
+	}
+
+	.mpQuestionInput{
+		width:80vw;
+		font-size:1rem;
+	}
+
+	.mpQuestionNavigationPrevious, .mpQuestionNavigationNew,.mpQuestionNavigationNext{
+		width:25vw;
+		font-size: 0.8rem;
+	}
+
+	.mpQuestion{
+		width:60vw;
+	}
+
+	.mpCorrect{
+		width:15vw;
+		font-size: 0.8rem;
+	}
+
+	.mpSubmitQuizMessage{
+		font-size:1.25rem;
+	}
+
+	.mpSubmitQuizButton{
+		width:70vw;
+		font-size:1rem;
+	}
+}
