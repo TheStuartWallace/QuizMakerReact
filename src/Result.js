@@ -20,22 +20,42 @@ class Result extends React.Component{
 	}
 
 	async getQuizData(){
+		const quiz_data = await firebase.firestore().collection("quiz").doc(this.state.id).get();
+		
+		if(!quiz_data.exists){
+			this.setState({status : -1, errorMessage : "This quiz does not exist"});
+			return;
+		}else{
+			this.setState({quizData : quiz_data.data()});
+		}
+
 		const question_data = await firebase.firestore().collection("quiz").doc(this.state.id).collection("question").get();
 		this.setState({questionData : question_data.docs.map(doc => doc.data())});
-		const quiz_data = await firebase.firestore().collection("quiz").doc(this.state.id).get();
-		this.setState({quizData : quiz_data.data()});
 		const responce_data = await firebase.firestore().collection("quiz").doc(this.state.id).collection("response").doc(this.state.resp).get();
 		
-		this.setState(
+		if(!responce_data.exists){
+			this.setState({status : -1, errorMessage : "Can't find responces!"});
+			return;
+		}else{
+			this.setState(
 			{	name : responce_data.data().name,
 				quiz_answer : responce_data.data().quiz_answer,
 				marks : responce_data.data().marks, 
 				date : responce_data.data().time.toDate(),
 				status : 1,
 			});
+		}
 	}
 
 	render(){
+		if(this.state.status === -1){
+			return (
+				<div className="globalWrapper">
+					<span className="globalLoadingMessage">Error! ({this.state.errorMessage})</span>
+				</div>
+			);
+		}
+
 		if(this.state.status === 0){
 			return (
 				<div className="globalWrapper">

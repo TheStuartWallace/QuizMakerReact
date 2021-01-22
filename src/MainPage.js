@@ -1,6 +1,7 @@
 import React from 'react';
 import './MainPage.css';
 import firebase from './Firebase';
+import {Link} from 'react-router-dom';
 
 class MainPage extends React.Component{
 	constructor(props){
@@ -100,7 +101,7 @@ class MainPage extends React.Component{
 
 			batch.commit();
 
-    		a.setState({resultLinkURL : window.location.origin+"/"+docRef.id,showStage:3})
+    		a.setState({resultLinkURL : docRef.id,showStage:3})
 		})
 		.catch(function(error) {
 		    this.setState({showStage : -1, errorMessage : error});
@@ -129,6 +130,7 @@ class MainPage extends React.Component{
 						className="mpInputTitle"
 						placeholder="Give your quiz a title" 
 						type="text" 
+						autoComplete="off"
 						value={JSON.parse(this.state.title)} 
 						onChange={(e) => this.handleInput(e)}/>
 
@@ -136,6 +138,7 @@ class MainPage extends React.Component{
 						<input 	placeholder="This is the start message" 
 								className="mpInputStart" 
 								name="message_start" 
+								autoComplete="off"
 								value={JSON.parse(this.state.message_start)} 
 								onChange={(e) => this.handleInput(e)} /> 
 					</span>
@@ -143,6 +146,7 @@ class MainPage extends React.Component{
 					<span className="mpQuizOption">
 						<input 	placeholder="This is the winning message" 
 						className="mpInputWin" 
+						autoComplete="off"
 						name="message_end_win" 
 						value={JSON.parse(this.state.message_end_win)} 
 						onChange={(e) => this.handleInput(e)} />
@@ -152,6 +156,7 @@ class MainPage extends React.Component{
 						<input 	placeholder="This is the losing message" 
 								className="mpInputLoss" 
 								name="message_end_loss" 
+								autoComplete="off"
 								value={JSON.parse(this.state.message_end_loss)} 
 								onChange={(e) => this.handleInput(e)} />
 					</span>
@@ -159,6 +164,7 @@ class MainPage extends React.Component{
 					<span className="mpQuizOption">
 						<input 	placeholder="Score needed to win" 
 								min="1" 
+								autoComplete="off"
 								className="mpInputWinScore" 
 								name="score_win" 
 								type="number" 
@@ -179,7 +185,7 @@ class MainPage extends React.Component{
 		 				<input 		className="mpQuestionInput" 
 					 				placeholder="Enter your question here" 
 					 				name="text" 
-					 				autocomplete="off" 
+					 				autoComplete="off" 
 					 				value={JSON.parse(this.state.quizQuestions[this.state.showQuestion].text)} 
 					 				onChange={(e) => this.handleQuestionInput(e,this.state.showQuestion)} 
 					 	/>							
@@ -188,7 +194,7 @@ class MainPage extends React.Component{
 		 				<span className="mpAnswerSpan">
 			 				<input 	className={(this.state.quizQuestions[this.state.showQuestion].correct === 1 ? "mpQuestionCorrect" : "mpQuestion")} 
 			 						placeholder="Enter option 1 here"
-			 						autocomplete="off" 
+			 						autoComplete="off" 
 			 						name="answer1" value={JSON.parse(this.state.quizQuestions[this.state.showQuestion].answer1)} 
 			 						onChange={(e) => this.handleQuestionInput(e,this.state.showQuestion)} />
 
@@ -199,7 +205,7 @@ class MainPage extends React.Component{
 		 				<span className="mpAnswerSpan">
 			 				<input 	className={(this.state.quizQuestions[this.state.showQuestion].correct === 2 ? "mpQuestionCorrect" : "mpQuestion")} 
 			 						placeholder="Enter option 2 here"
-			 						autocomplete="off" 
+			 						autoComplete="off" 
 			 						name="answer2" value={JSON.parse(this.state.quizQuestions[this.state.showQuestion].answer2)} 
 			 						onChange={(e) => this.handleQuestionInput(e,this.state.showQuestion)} />
 
@@ -210,7 +216,7 @@ class MainPage extends React.Component{
 		 				<span className="mpAnswerSpan">
 			 				<input 	className={(this.state.quizQuestions[this.state.showQuestion].correct === 3 ? "mpQuestionCorrect" : "mpQuestion")} 
 			 						placeholder="Enter option 3 here"
-			 						autocomplete="off" 
+			 						autoComplete="off" 
 			 						name="answer3" value={JSON.parse(this.state.quizQuestions[this.state.showQuestion].answer3)} 
 			 						onChange={(e) => this.handleQuestionInput(e,this.state.showQuestion)} />
 			 				<button className="mpCorrect" onClick={()=>this.setCorrect(this.state.showQuestion,3)}>Correct</button>
@@ -220,7 +226,7 @@ class MainPage extends React.Component{
 		 				<span className="mpAnswerSpan">
 			 				<input 	className={(this.state.quizQuestions[this.state.showQuestion].correct === 4 ? "mpQuestionCorrect" : "mpQuestion")} 
 			 						placeholder="Enter option 4 here"
-			 						autocomplete="off" 
+			 						autoComplete="off" 
 			 						name="answer4" value={JSON.parse(this.state.quizQuestions[this.state.showQuestion].answer4)} 
 			 						onChange={(e) => this.handleQuestionInput(e,this.state.showQuestion)} />
 
@@ -268,7 +274,7 @@ class MainPage extends React.Component{
 
 			case 3: return (
 				<div className="globalWrapper">
-					<div className="submitLink">Cool, your link is here: <a href={this.state.resultLinkURL} rel="noreferrer" target="_blank">{this.state.resultLinkURL}</a></div>
+					<div className="submitLink"><Link to={this.state.resultLinkURL} target="_blank">Cool, click me to view your quiz</Link></div>
 				</div>
 			);
 		}

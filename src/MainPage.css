@@ -102,7 +102,12 @@
 
 .mpAnswerSpan{
  	margin:0.25vh 0vw;
- }
+}
+
+.submitLink{
+	font-size:5rem;
+	font-weight: bold;
+}
 
 @media only screen and (max-width:800px){
 	.mpInputTitle{
@@ -122,6 +127,10 @@
 	}
 
 	.mpSubmitQuizMessage{
+		font-size:2.5rem;
+	}
+
+	.submitLink{
 		font-size:2.5rem;
 	}
 
@@ -154,6 +163,10 @@
 
 	.mpQuestion{
 		width:60vw;
+	}
+
+	.submitLink{
+		font-size:1rem;
 	}
 
 	.mpCorrect{

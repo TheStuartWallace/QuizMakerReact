@@ -1,6 +1,7 @@
 import React from 'react';
 import './Quiz.css';
 import firebase from './Firebase';
+import {Link} from 'react-router-dom';
 
 class Quiz extends React.Component{
 	constructor(props){
@@ -23,27 +24,17 @@ class Quiz extends React.Component{
 	}
 
 	async getQuizData(){
-		try{
-			const question_data = await firebase.firestore().collection("quiz").doc(this.state.id).collection("question").get();
-
-			if(!question_data.exists){
-		    	this.setState({status : -1, errorMessage : "This quiz does not exist"});
-		    	return;
-			}else{
-				this.setState({questionData : question_data.docs.map(doc => doc.data())});
-			}
-
-			const quiz_data = await firebase.firestore().collection("quiz").doc(this.state.id).get();
-
-			if(!quiz_data.exists){
-		    	this.setState({status : -1, errorMessage : "Unable to load quiz questions"});
-				return;
-			}else{
-				this.setState({status:1,quizData : quiz_data.data()},()=>{document.title = JSON.parse(quiz_data.data().title)+" - Quiz Maker"});
-			}
-		}catch(error){
-			this.setState({status : -1, errorMessage : error});
+		const quiz_data = await firebase.firestore().collection("quiz").doc(this.state.id).get();
+		if(!quiz_data.exists){
+		   	this.setState({status : -1, errorMessage : "Quiz does not exist '"+this.state.id+"'"});
+			return;
+		}else{
+			this.setState({quizData : quiz_data.data()},()=>{document.title = JSON.parse(quiz_data.data().title)+" - Quiz Maker"});
 		}
+
+		const question_data = await firebase.firestore().collection("quiz").doc(this.state.id).collection("question").get();
+		this.setState({status:1,questionData : question_data.docs.map(doc => doc.data())});
+		
 	}
 
 	selectAnswer(id){
@@ -78,7 +69,7 @@ class Quiz extends React.Component{
 			marks : this.state.marks,
 			time : firebase.firestore.FieldValue.serverTimestamp(),
 		}).then(function(docRef) {
-    		a.setState({resultLinkURL : window.location.origin+"/"+a.state.id+"/r/"+docRef.id,savedLink:true})
+    		a.setState({resultLinkURL : a.state.id+"/r/"+docRef.id,savedLink:true})
 		})
 		.catch(function(error) {
 		    this.setState({status : -1, errorMessage : error});
@@ -171,7 +162,7 @@ class Quiz extends React.Component{
 							<br/>
 						</div>
 						<div className="qResultLink" style={{display : this.state.savedLink ? 'block' : 'none'}}>
-							Cool! Your link is <a target="_blank" rel="noreferrer" href={this.state.resultLinkURL}>{this.state.resultLinkURL}</a>
+							<Link target="_blank" to={this.state.resultLinkURL}>Cool, here's your link</Link>
 						</div>
 					</div>
 				</div>

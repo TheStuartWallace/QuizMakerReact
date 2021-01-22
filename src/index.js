@@ -4,7 +4,7 @@ import './index.css';
 import MainPage from './MainPage';
 import Quiz from './Quiz';
 import Result from './Result';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {HashRouter as Router, Route} from 'react-router-dom';
 
 class App extends React.Component{
 	render(){
