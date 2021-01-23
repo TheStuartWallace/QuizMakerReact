@@ -69,7 +69,7 @@ class Quiz extends React.Component{
 			marks : this.state.marks,
 			time : firebase.firestore.FieldValue.serverTimestamp(),
 		}).then(function(docRef) {
-    		a.setState({resultLinkURL : a.state.id+"/r/"+docRef.id,savedLink:true})
+    		a.setState({resultLinkURL : "r/"+docRef.id,savedLink:true})
 		})
 		.catch(function(error) {
 		    this.setState({status : -1, errorMessage : error});
