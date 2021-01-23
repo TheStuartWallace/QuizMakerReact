@@ -4,10 +4,11 @@
 	margin:5vh auto;
 }
 
-.qStartMessage, .qEndMessage	{
-	font-size:2rem;
+.qStartMessage, .qEndMessage{
+	font-size:300%;
 	font-weight: bold;
 	margin:5vh auto;
+	width:80vw;
 }
 
 .qQuestionCount{
@@ -31,8 +32,8 @@
 
 .qAnswerButton{
 	width:50vw;
-	height:5vh;
-	font-size:2rem;
+	min-height:5vh;
+	font-size:150%;
 	transition: background 1s, color 1s;
 }
 
