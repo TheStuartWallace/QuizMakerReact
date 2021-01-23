@@ -1,0 +1,52 @@
+.sbTitle{
+	font-size: 5rem;
+	font-weight: bold;
+}
+
+.sbEntry{
+	background: var(--backgroundLigherGlobal);
+	border-radius: 5px;
+	width:50vw;
+	height:5vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	margin:0.5vh auto;
+}
+
+.sbEntryPos{
+	font-size:1.5rem;
+	font-weight: bold;
+}
+
+.sbEntryName{
+	font-size:1.2rem;
+}
+
+.sbEntryScore{
+	font-size:0.8rem;
+}
+
+@media only screen and (max-width:800px){
+	.sbEntry{
+		width:80vw;
+	}
+
+	.sbTitle{
+		font-size: 3rem;
+	}
+
+}
+
+
+@media only screen and (max-width:400px){
+	.sbEntry{
+		width:90vw;
+	}
+
+	.sbTitle{
+		font-size: 1.8rem;
+	}
+
+}
