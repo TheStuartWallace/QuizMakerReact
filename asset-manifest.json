@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/QuizMakerReact/static/css/main.5ee20b70.chunk.css",
+    "main.css": "/QuizMakerReact/static/css/main.7ca7ba8e.chunk.css",
     "main.js": "/QuizMakerReact/static/js/main.0fe44587.chunk.js",
     "main.js.map": "/QuizMakerReact/static/js/main.0fe44587.chunk.js.map",
     "runtime-main.js": "/QuizMakerReact/static/js/runtime-main.08abf6ab.js",
@@ -8,13 +8,13 @@
     "static/js/2.67769b08.chunk.js": "/QuizMakerReact/static/js/2.67769b08.chunk.js",
     "static/js/2.67769b08.chunk.js.map": "/QuizMakerReact/static/js/2.67769b08.chunk.js.map",
     "index.html": "/QuizMakerReact/index.html",
-    "static/css/main.5ee20b70.chunk.css.map": "/QuizMakerReact/static/css/main.5ee20b70.chunk.css.map",
+    "static/css/main.7ca7ba8e.chunk.css.map": "/QuizMakerReact/static/css/main.7ca7ba8e.chunk.css.map",
     "static/js/2.67769b08.chunk.js.LICENSE.txt": "/QuizMakerReact/static/js/2.67769b08.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.08abf6ab.js",
     "static/js/2.67769b08.chunk.js",
-    "static/css/main.5ee20b70.chunk.css",
+    "static/css/main.7ca7ba8e.chunk.css",
     "static/js/main.0fe44587.chunk.js"
   ]
 }
