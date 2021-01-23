@@ -43,16 +43,16 @@
 
 .qResultQuestion, .qResultAnswer{
 	margin:1vh auto;
-	height:3vh;
+	min-height:3vh;
 }
 
 .qResultQuestion{
-	font-size:1.5rem;
 	font-weight: bold;
 }
 
 .qCorrect, .qWrong{
 	width:50vw;
+	min-height:5vh;
 	margin:1vh auto;
 	color:black;	
 }
@@ -72,6 +72,12 @@
 	width:50vw;
 }
 
+.qSaveInputWrapper{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .qSaveInput{
 	font-size:2rem;
 	width:20vw;
@@ -79,7 +85,7 @@
 }
 
 .qSaveButton{
-	width:5vw;
+	width:10vw;
 	height:5vh;
 	border:none;
 	background: var(--backgroundDarkerGlobal);
@@ -95,7 +101,7 @@
 	word-wrap: break-word;
 }
 
-@media only screen and (max-width:800px){
+@media only screen and (max-width:1000px){
 	.qTitle{
 		font-size: 4rem;
 	}

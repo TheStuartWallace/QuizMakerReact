@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
 :root{
 	--backgroundGlobal:				#872D62;
 	--backgroundDarkerGlobal: 		#651142;
@@ -9,6 +11,10 @@
 	--backgroundCorrect: 			#4dc46b;
 }
 
+*{
+	font-family: 'Noto Sans JP', sans-serif;
+}
+
 html, body{
 	width:100% !important;
 	height:100% !important;
@@ -16,7 +22,7 @@ html, body{
 	font-size: 14px;
 	padding:none;
 	color:var(--colorGlobal);
-	font-family: Tahoma;
+	font-family: 'Noto Sans JP', sans-serif;
 }
 
 button{

@@ -157,8 +157,10 @@ class Quiz extends React.Component{
 						<div style={{display : this.state.savedLink ? 'none' : 'initial'}}>
 							Want to show people how you did? Save you results!<br/>
 							<br/>
-							<input placeholder="Your name here" className="qSaveInput" name="qNameInput" onChange={(e) => this.handleInputChange(e)} type="text" value={this.state.qNameInput} />
-							<button className="qSaveButton" onClick={() => this.saveResult()}>Save Result</button>
+							<div className="qSaveInputWrapper">
+								<input placeholder="Your name here" className="qSaveInput" name="qNameInput" onChange={(e) => this.handleInputChange(e)} type="text" value={this.state.qNameInput} />
+								<button className="qSaveButton" onClick={() => this.saveResult()}>Save Result</button>
+							</div>
 							<br/>
 						</div>
 						<div className="qResultLink" style={{display : this.state.savedLink ? 'block' : 'none'}}>
