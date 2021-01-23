@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/QuizMakerReact/static/css/main.7ca7ba8e.chunk.css",
-    "main.js": "/QuizMakerReact/static/js/main.0fe44587.chunk.js",
-    "main.js.map": "/QuizMakerReact/static/js/main.0fe44587.chunk.js.map",
+    "main.js": "/QuizMakerReact/static/js/main.752662c6.chunk.js",
+    "main.js.map": "/QuizMakerReact/static/js/main.752662c6.chunk.js.map",
     "runtime-main.js": "/QuizMakerReact/static/js/runtime-main.08abf6ab.js",
     "runtime-main.js.map": "/QuizMakerReact/static/js/runtime-main.08abf6ab.js.map",
     "static/js/2.67769b08.chunk.js": "/QuizMakerReact/static/js/2.67769b08.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.08abf6ab.js",
     "static/js/2.67769b08.chunk.js",
     "static/css/main.7ca7ba8e.chunk.css",
-    "static/js/main.0fe44587.chunk.js"
+    "static/js/main.752662c6.chunk.js"
   ]
 }
