@@ -1,6 +1,6 @@
 import React from 'react';
-import './Scoreboard.css';
-import firebase from './Firebase';
+import '../style/Scoreboard.css';
+import QuizMaker from '../QuizMaker';
 
 class Scoreboard extends React.Component{
 	constructor(props){
@@ -10,48 +10,42 @@ class Scoreboard extends React.Component{
 
 		this.state = {
 			id : this.props.match.params.id,
-			showStage : 0,
+			status : 0,
 			responces : new Array(10).fill(undefined),
 		};
+	}
 
+	componentDidMount(){
 		this.getQuizData();
 	}
 
-	async getQuizData(){
-		const quiz_data = await firebase.firestore().collection("quiz").doc(this.state.id).get();
-		
-		if(!quiz_data.exists){
-			this.setState({showStage : -1, errorMessage : "This quiz does not exist"});
-			return;
-		}else{
-			this.setState({quizData : quiz_data.data()});
+	getQuizData(){
+		let quiz = {
+			option : undefined,
+			question : undefined,
 		}
 
-		const question_data = await firebase.firestore().collection("quiz").doc(this.state.id).collection("question").get();
-		this.setState({questionData : question_data.docs.map(doc => doc.data())});
-		let a = this;
-		await firebase.firestore().collection("quiz").doc(this.state.id).collection("response").get().then(function(querySnapshot) {
-			querySnapshot.forEach(function(doc) {
-				let responceData = {
-					name : doc.data().name,
-					quiz_answer : doc.data().quiz_answer,
-					marks : doc.data().marks, 
-					score : a.mark(doc.data().marks),
-					date : doc.data().time.toDate(),
-				};
-
-				let array = a.state.responces;
-				array.push(responceData);
-
-				a.setState({responces : array});
-			});
+		QuizMaker.getQuizOptions(this.state.id).then((data)=>{
+			if(data === undefined){
+				this.setState({status : -1, errorMessage : "Quiz does not exist '"+this.state.id+"'"});
+				return;
+			}else{
+				quiz.option = data;
+			}
 		});
 
-		let array = this.state.responces;
+		QuizMaker.getQuizQuestions(this.state.id).then((data) => {
+			if(data === undefined){
+				this.setState({status : -1, errorMessage : "Quiz does not exist '"+this.state.id+"'"});
+				return;
+			}else{
+				quiz.question = data;
+			}
+		});
 
-		array.sort(function(a,b){return b.score - a.score});
-		array = array.slice(0,10);
-		this.setState({showStage : 1,responces : array});
+		QuizMaker.getQuizTop10(this.state.id).then((data) => {
+			this.setState({quiz : quiz,responces : data, status : 1});
+		});
 	}
 
 	mark(score){
@@ -65,7 +59,7 @@ class Scoreboard extends React.Component{
 	}
 
 	render(){
-		switch(this.state.showStage){
+		switch(this.state.status){
 			case -1:return (
 				<div className="globalWrapper">
 					<span className="globalLoadingMessage">Error! ({this.state.errorMessage})</span>
@@ -80,7 +74,7 @@ class Scoreboard extends React.Component{
 
 			case 1: return (
 				<div className="globalWrapper">
-					<span className="sbTitle">{JSON.parse(this.state.quizData.title)}'s Scoreboard</span>
+					<span className="sbTitle">{JSON.parse(this.state.quiz.option.title)}'s Scoreboard</span>
 					{
 						this.state.responces.map((data,index) => {
 							if(data === undefined){

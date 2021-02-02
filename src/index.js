@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import MainPage from './MainPage';
-import Quiz from './Quiz';
-import Result from './Result';
-import Scoreboard from './Scoreboard';
+import './style/index.css';
+import MainPage from './components/MainPage';
+import Quiz from './components/Quiz';
+import Result from './components/Result';
+import Scoreboard from './components/Scoreboard';
 import {HashRouter as Router, Route} from 'react-router-dom';
 
 class App extends React.Component{
